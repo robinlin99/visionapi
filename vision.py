@@ -1,5 +1,6 @@
 import io
 import os
+import time
 from os import listdir
 from os.path import isfile, join
 from PIL import Image
@@ -26,6 +27,8 @@ def classify():
 		    content = image_file.read()
 		img = Image.open(i)
 		img.show()
+		img.close()
+		time.sleep(1)
 		image = types.Image(content=content)
 		# Performs label detection on the image file
 		response = client.landmark_detection(image=image)
